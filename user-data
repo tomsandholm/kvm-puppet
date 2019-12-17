@@ -65,7 +65,7 @@ runcmd:
   - rm /opt/puppet-enterprise-*.gz
   - cd /opt/puppet-enterprise*
   - ./puppet-enterprise-installer -y -c /opt/pe.conf
-  - puppet infrastructure console_password --password=theresa1
+  - puppet infrastructure console_password --password=newpassword
   - shutdown -h now
 
 
