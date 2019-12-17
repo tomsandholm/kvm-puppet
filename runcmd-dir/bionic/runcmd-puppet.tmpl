@@ -1,0 +1,13 @@
+runcmd:
+  - echo '{{ ds.meta_data.role }}' > /etc/role
+  - echo '{{ ds.meta_data.aenv }}' > /etc/aenv
+  - update-grub
+  - apt autoremove -y
+  - touch /etc/cloud/cloud-init.disabled
+  - eject
+  - cd /opt && tar xvfz puppet-enterprise*
+  - rm /opt/puppet-enterprise-*.gz
+  - cd /opt/puppet-enterprise*
+  - ./puppet-enterprise-installer -y -c /opt/pe.conf
+  - puppet infrastructure console_password --password=theresa1
+  - shutdown -h now
